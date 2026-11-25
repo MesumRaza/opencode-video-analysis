@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/mesumraza/opencode-video-analysis/security/advisories/new
+    about: Report privately. Do not open a public issue for a security problem.
+  - name: Commercial licence
+    url: https://github.com/mesumraza/opencode-video-analysis/blob/main/COMMERCIAL.md
+    about: Closed-source or paid use needs a commercial licence — read this first.
+  - name: Questions about the audit format
+    url: https://github.com/mesumraza/opencode-video-analysis/blob/main/README.md#audit-object-schema-15
+    about: The README documents every field; check it before asking.

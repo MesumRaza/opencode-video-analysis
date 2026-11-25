@@ -1,0 +1,7 @@
+{"type":"manifest","schema_version":"1.5","plugin":"opencode-video-analysis","run":"fixture","video":"fixture.mp4","started_at":"2026-01-01T00:00:00.000Z"}
+{"type":"scene","chunk_index":1,"start_sec":0,"end_sec":12.2,"time_range":"00:00 to 00:12","setting":"phone frame","activity":"speaker intro","on_screen_text":["MY NAME IS SAM RIVERA"]}
+{"type":"scene","chunk_index":1,"start_sec":12.2,"end_sec":21,"time_range":"00:12 to 00:21","setting":"phone frame","activity":"tooling story","on_screen_text":[]}
+{"type":"scene","chunk_index":1,"start_sec":21,"end_sec":34,"time_range":"00:21 to 00:34","setting":"classroom","activity":"instructor praise","on_screen_text":[]}
+{"type":"finding","id":"f1","timestamp":"00:14","at_sec":14,"kind":"defect","source":"model","chunk_index":1,"text":"Caption cuts mid-sentence at 00:14 (fixture)."}
+{"type":"finding","id":"f2","timestamp":"00:22","at_sec":22,"kind":"beat","source":"model","chunk_index":1,"text":"Instructor section begins (fixture)."}
+{"type":"finding","id":"f3","timestamp":"00:27","at_sec":27,"kind":"quote","source":"model","chunk_index":1,"text":"\"biggest difference for me\" — usable pull-quote (fixture)."}

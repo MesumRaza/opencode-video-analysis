@@ -1,0 +1,24 @@
+opencode-video-analysis
+Copyright (C) 2026 Mesum Raza
+https://github.com/mesumraza/opencode-video-analysis
+
+This work is licensed under the GNU Affero General Public License, version 3
+or (at your option) any later version. The full terms are in LICENSE.
+
+Attribution is a condition of the licence, not a courtesy. If you distribute
+this software, a modified version of it, or a service built on it, you must:
+
+  1. keep this NOTICE and the copyright line above in the source distribution;
+  2. keep the copyright and licence notices in the source files you modify;
+  3. state prominently that your version is modified, and give the date;
+  4. offer every user who interacts with your version over a network the
+     Corresponding Source of that version (AGPL section 13).
+
+The name "opencode-video-analysis" and the author's name are not licensed
+as trademarks: they may not be used to endorse or promote a derivative work
+without written permission.
+
+If you would rather build on this without the AGPL's source-disclosure
+obligations, a commercial licence is available — see COMMERCIAL.md.
+
+Original author: Mesum Raza (@mesumraza)

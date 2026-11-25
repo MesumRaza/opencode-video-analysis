@@ -1,0 +1,61 @@
+name: Feature request
+description: A capability, provider, or output shape you want
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This plugin is deliberately small and provider-agnostic. Proposals that
+        add a *capability* (a new response shape, a container, a locale, a field)
+        are welcome; proposals that special-case one genre or one vendor are not.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you unable to do today? Describe the video and the question you need answered.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+      description: If it changes the audit or tool arguments, sketch the shape.
+      placeholder: |
+        transcribe: { engine: "whisper", model: "...", baseUrl: "..." }
+        segments[i].transcript.cues[j].speaker_id: "spk_2"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Which surface does this affect?
+      multiple: true
+      options:
+        - Video analysis / prompting
+        - Chunking, continuity or stitching
+        - Entity registry
+        - Audio transcription
+        - Audit schema (breaking)
+        - Brief output
+        - Background jobs / resume
+        - Packaging / docs
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Prompt changes, another provider, a wrapper script, or forking.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Contribution
+      options:
+        - label: I have read LICENSE and CLA.md and I am willing to contribute under those terms.
+          required: false

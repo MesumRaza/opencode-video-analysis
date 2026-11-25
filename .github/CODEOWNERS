@@ -1,0 +1,9 @@
+# Every path is owned by the maintainer until a co-maintainer is added.
+* @mesumraza
+
+# Licence and attribution files need explicit review: changing them changes
+# the terms everyone else already relied on.
+/LICENSE        @mesumraza
+/NOTICE         @mesumraza
+/COMMERCIAL.md  @mesumraza
+/CLA.md         @mesumraza

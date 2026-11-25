@@ -1,0 +1,57 @@
+{
+  "name": "opencode-video-analysis",
+  "version": "2.7.0",
+  "description": "Auditable, perspective-aware video analysis for OpenCode: chunking with n-1 continuity, an entity registry, word-level transcripts, background jobs, and resume.",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "video",
+    "video-analysis",
+    "transcription",
+    "speech-to-text",
+    "entity-registry",
+    "audit",
+    "ffmpeg",
+    "openrouter"
+  ],
+  "homepage": "https://github.com/mesumraza/opencode-video-analysis#readme",
+  "bugs": {
+    "url": "https://github.com/mesumraza/opencode-video-analysis/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mesumraza/opencode-video-analysis.git"
+  },
+  "author": {
+    "name": "Mesum Raza",
+    "url": "https://github.com/mesumraza"
+  },
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "files": [
+    "index.ts",
+    "transcription.ts",
+    "audit-reader.ts",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "COMMERCIAL.md"
+  ],
+  "scripts": {
+    "check": "node scripts/check-package.mjs",
+    "check:viewer": "node scripts/check-viewer.mjs",
+    "check:reader": "node --experimental-strip-types scripts/check-audit-reader.mjs",
+    "syntax": "node --experimental-strip-types --check index.ts && node --experimental-strip-types --check transcription.ts && node --experimental-strip-types --check audit-reader.ts",
+    "serve": "node scripts/serve.mjs . 8766",
+    "fixture": "node explorer/fixtures/make-fixture.mjs"
+  },
+  "engines": {
+    "node": ">=22.6"
+  },
+  "dependencies": {
+    "@opencode/plugin": "latest"
+  }
+}

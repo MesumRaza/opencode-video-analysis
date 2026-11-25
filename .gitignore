@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+bun.lockb
+bun.lock
+
+# Build output
+dist/
+build/
+coverage/
+
+# Local config and secrets
+.env
+.env.*
+!.env.example
+opencode.jsonc.local
+*.local
+
+# Audit output and test media — regenerate locally, never commit
+artifacts/
+audits/
+audit-output/
+*.audit.json
+*.timeline.jsonl
+*.transcript.jsonl
+# ...except the synthetic fixture the explorer opens by default
+!explorer/fixtures/*.json
+!explorer/fixtures/*.jsonl
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.mp3
+*.wav
+*.m4a
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*~
+
+# Logs
+*.log
+npm-debug.log*
