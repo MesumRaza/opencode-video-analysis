@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: syntax and package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Syntax check (types stripped, no build step)
+        run: |
+          node --experimental-strip-types --check index.ts
+          node --experimental-strip-types --check transcription.ts
+          node --experimental-strip-types --check audit-reader.ts
+
+      - name: Package consistency
+        run: node scripts/check-package.mjs
+
+      - name: Audit reader (fixture)
+        run: node --experimental-strip-types scripts/check-audit-reader.mjs
+
+      - name: Viewer fixture and default audit
+        run: node scripts/check-viewer.mjs
+
+      - name: Toolchain present
+        run: |
+          ffmpeg -version | head -1
+          ffprobe -version | head -1
+
+      - name: Licence files present
+        run: |
+          test -s LICENSE
+          grep -q "GNU AFFERO GENERAL PUBLIC LICENSE" LICENSE
+          test -s NOTICE
+          test -s COMMERCIAL.md
+          test -s CLA.md
+
+  fixtures:
+    name: explorer fixtures parse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Every fixture JSON and JSONL row is valid
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const dir = "explorer/fixtures";
+            for (const f of fs.readdirSync(dir).sort()) {
+              const p = dir + "/" + f;
+              if (f.endsWith(".json")) {
+                const j = JSON.parse(fs.readFileSync(p, "utf8"));
+                if (!j.synthetic && !j.audit) { console.error("unexpected fixture", f); process.exit(1); }
+                console.log("ok json ", f);
+              }
+              if (f.endsWith(".jsonl")) {
+                const rows = fs.readFileSync(p, "utf8").trim().split("\n");
+                rows.forEach((r) => JSON.parse(r));
+                console.log("ok jsonl", f, rows.length, "rows");
+              }
+            }
+          '
