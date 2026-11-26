@@ -11,7 +11,7 @@
  * documented contract that has no implementation.
  */
 
-import { readFileSync, existsSync, statSync, readdirSync } from "node:fs";
+import { readFileSync, existsSync, statSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -42,20 +42,11 @@ if (!declaredLicense.startsWith("AGPL-3.0")) {
 if (!pkg.author) problems.push("package.json: missing author (attribution is a licence term)");
 if (!pkg.repository) problems.push("package.json: missing repository");
 
-// Every file the package promises must exist. Directories are allowed in npm's
-// files[] (whole folder is published), so they only need to be non-empty.
+// Every file the package promises must exist, and it must be a file.
 for (const file of pkg.files ?? []) {
   const full = resolve(root, file);
-  if (!existsSync(full)) {
-    problems.push(`package.json: files[] lists "${file}", which does not exist`);
-    continue;
-  }
-  const st = statSync(full);
-  if (st.isDirectory()) {
-    if (readdirSync(full).length === 0) problems.push(`package.json: files[] lists empty directory "${file}"`);
-    continue;
-  }
-  if (!st.isFile()) problems.push(`package.json: files[] lists "${file}", which is neither a file nor a directory`);
+  if (!existsSync(full)) problems.push(`package.json: files[] lists "${file}", which does not exist`);
+  else if (!statSync(full).isFile()) problems.push(`package.json: files[] lists "${file}", which is not a file`);
 }
 for (const required of ["index.ts", "transcription.ts", "README.md", "LICENSE"]) {
   if (!pkg.files?.includes(required)) problems.push(`package.json: files[] must include "${required}"`);

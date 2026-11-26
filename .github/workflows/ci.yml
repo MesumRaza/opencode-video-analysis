@@ -33,9 +33,6 @@ jobs:
       - name: Package consistency
         run: node scripts/check-package.mjs
 
-      - name: Documentation links and images
-        run: node scripts/check-docs.mjs
-
       - name: Audit reader (fixture)
         run: node --experimental-strip-types scripts/check-audit-reader.mjs
 

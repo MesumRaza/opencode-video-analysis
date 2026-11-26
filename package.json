@@ -38,15 +38,12 @@
     "README.md",
     "LICENSE",
     "NOTICE",
-    "COMMERCIAL.md",
-    "assets/",
-    "docs/"
+    "COMMERCIAL.md"
   ],
   "scripts": {
     "check": "node scripts/check-package.mjs",
     "check:viewer": "node scripts/check-viewer.mjs",
     "check:reader": "node --experimental-strip-types scripts/check-audit-reader.mjs",
-    "check:docs": "node scripts/check-docs.mjs",
     "syntax": "node --experimental-strip-types --check index.ts && node --experimental-strip-types --check transcription.ts && node --experimental-strip-types --check audit-reader.ts",
     "serve": "node scripts/serve.mjs . 8766",
     "fixture": "node explorer/fixtures/make-fixture.mjs"
