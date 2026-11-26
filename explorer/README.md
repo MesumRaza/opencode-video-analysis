@@ -1,3 +1,5 @@
+[Documentation index](../docs/README.md) · [Project home](../README.md)
+
 # Audit explorer
 
 A single-file HTML viewer for an audit produced by this plugin. No build step, no
@@ -101,3 +103,7 @@ Reads 1.3, 1.4 and 1.5, and absorbs the 1.5 restructure:
 - **resume** — `audit.resume` is shown with the job it continued from
 
 Works entirely offline; nothing is uploaded anywhere.
+
+---
+
+[Documentation index](../docs/README.md) · [Project home](../README.md)
